@@ -12,17 +12,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SOCKTALKFRONTENDPLUGIN_H
-#define SOCKTALKFRONTENDPLUGIN_H
-
-#include <QQmlExtensionPlugin>
+#include "clientwrapper.h"
 #include "socktalkfrontend.h"
 
-class SockTalkFrontendPlugin : public QQmlExtensionPlugin {
-	Q_OBJECT
-	Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
-public:
-	void registerTypes(const char *uri);
-};
+void ClientWrapper::handleMessage(const std::string &msg, int type, const std::string &src) {
+	if (status == FORCIBLY_DISCONNECTED) {
+		return;
+	}
+	if (frontend) {
+		frontend->handleMessage(msg, type, src);
+	}
+	if (!msg.compare(0, 6, "TERM: ")) {
+		status = FORCIBLY_DISCONNECTED;
+	}
+}
 
-#endif
+void ClientWrapper::setFrontend(SockTalkFrontend* frontend) {
+	this->frontend = frontend;
+}

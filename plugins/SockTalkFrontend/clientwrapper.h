@@ -12,17 +12,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SOCKTALKFRONTENDPLUGIN_H
-#define SOCKTALKFRONTENDPLUGIN_H
+class SockTalkFrontend;
 
-#include <QQmlExtensionPlugin>
-#include "socktalkfrontend.h"
+#include "socktalkclient.h"
 
-class SockTalkFrontendPlugin : public QQmlExtensionPlugin {
-	Q_OBJECT
-	Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+class Client : public SockTalkClient {
+	SockTalkFrontend* frontend;
 public:
-	void registerTypes(const char *uri);
-};
+	using SockTalkClient::SockTalkClient;
+	virtual void handleMessage(const std::string &msg, int type, const std::string &src);
 
-#endif
+	void setFrontend(SockTalkFrontend* frontend);
+};
