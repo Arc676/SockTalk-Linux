@@ -1,4 +1,4 @@
-// Copyright (C) 2018-9 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+// Copyright (C) 2019  Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -13,34 +13,21 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.4
-import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
-MainView {
-	id: root
-	objectName: 'mainView'
-	applicationName: 'socktalkclient.arc676'
-	automaticOrientation: true
+PageHeader {
+	id: header
+	title: i18n.tr("SockTalk")
 
-	width: units.gu(45)
-	height: units.gu(75)
-	property real margin: units.gu(2)
+	trailingActionBar {
+		actions: [
+			Action {
+				iconName: "info"
+				visible: pageViewer.depth === 1
+				text: i18n.tr("About SockTalk")
 
-	PageStack {
-		id: pageViewer
-		anchors.fill: parent
-
-		property ChatView chatPage: ChatView {
-			visible: false
-		}
-
-		property AboutView aboutPage: AboutView {
-			visible: false
-		}
-
-		Component.onCompleted: {
-			pageViewer.clear()
-			pageViewer.push(chatPage)
-		}
+				onTriggered: pageViewer.push(pageViewer.aboutPage)
+			}
+		]
 	}
 }
