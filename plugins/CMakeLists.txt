@@ -1,1 +1,1 @@
-add_subdirectory(Socktalkfrontend)
+add_subdirectory(SockTalkFrontend)

@@ -2,8 +2,9 @@
 #define SOCKTALKFRONTENDPLUGIN_H
 
 #include <QQmlExtensionPlugin>
+#include "socktalkfrontend.h"
 
-class SocktalkfrontendPlugin : public QQmlExtensionPlugin {
+class SockTalkFrontendPlugin : public QQmlExtensionPlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 

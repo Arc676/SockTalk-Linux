@@ -3,12 +3,12 @@
 
 #include <QObject>
 
-class Socktalkfrontend: public QObject {
+class SockTalkFrontend: public QObject {
     Q_OBJECT
 
 public:
-    Socktalkfrontend();
-    ~Socktalkfrontend() = default;
+    SockTalkFrontend();
+    ~SockTalkFrontend() = default;
 
     Q_INVOKABLE void speak();
 };

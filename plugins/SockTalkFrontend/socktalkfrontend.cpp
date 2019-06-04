@@ -2,10 +2,10 @@
 
 #include "socktalkfrontend.h"
 
-Socktalkfrontend::Socktalkfrontend() {
+SockTalkFrontend::SockTalkFrontend() {
 
 }
 
-void Socktalkfrontend::speak() {
+void SockTalkFrontend::speak() {
     qDebug() << "hello world!";
 }
