@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: socktalkclient.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-04 11:04+0000\n"
+"POT-Creation-Date: 2019-06-05 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,60 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:20 socktalkclient.desktop.in.h:1
+#: ../qml/ChatView.qml:42
+msgid "Host:"
+msgstr ""
+
+#: ../qml/ChatView.qml:58
+msgid "Port:"
+msgstr ""
+
+#: ../qml/ChatView.qml:74
+msgid "Nickname:"
+msgstr ""
+
+#: ../qml/ChatView.qml:91
+msgid "Connect"
+msgstr ""
+
+#: ../qml/ChatView.qml:104
+msgid "Disconnect"
+msgstr ""
+
+#: ../qml/ChatView.qml:151
+msgid "Send"
+msgstr ""
+
+#: ../qml/AboutView.qml:40
+msgid "written by Arc676/Alessandro Vinciguerra. Project available under"
+msgstr ""
+
+#: ../qml/AboutView.qml:44
+msgid ""
+"This program is free software: you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation (version 3)."
+msgstr ""
+
+#: ../qml/AboutView.qml:48
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details."
+msgstr ""
+
+#: ../qml/AboutView.qml:52
+msgid ""
+"For the full license text, visit the <a href='https://github.com/Arc676/"
+"SockTalk-Linux'>repository</a> or the <a href='http://www.gnu.org/"
+"licenses/'>GNU licenses page</a>"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:20 socktalkclient.desktop.in.h:1
 msgid "SockTalk"
 msgstr ""
 
-#: ../qml/Main.qml:25
-msgid "Hello World!"
+#: ../qml/DefaultHeader.qml:27
+msgid "About SockTalk"
 msgstr ""

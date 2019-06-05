@@ -15,19 +15,23 @@
 #ifndef SOCKTALKFRONTEND_H
 #define SOCKTALKFRONTEND_H
 
+#include <QVariant>
 #include <QObject>
 
-#include "clientwrapper.h"
+#include "client.h"
 
 class SockTalkFrontend: public QObject {
 	Q_OBJECT
-	ClientWrapper* client;
+	Client* client;
 public:
 	SockTalkFrontend();
 	~SockTalkFrontend();
 
-	Q_INVOKABLE connect(QVariant host, int port, QVariant username, QVariant cert, QVariant pem);
-	Q_INVOKABLE sendMessage(QVariant msg);
+	void handleMessage(const std::string &msg, int type, const std::string &src);
+
+	Q_INVOKABLE bool connect(QVariant host, int port, QVariant username, QVariant cert, QVariant pem);
+	Q_INVOKABLE bool sendMessage(QVariant msg);
+	Q_INVOKABLE bool disconnect();
 };
 
 #endif

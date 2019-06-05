@@ -12,21 +12,20 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#include "clientwrapper.h"
-#include "socktalkfrontend.h"
+class SockTalkFrontend;
 
-void ClientWrapper::handleMessage(const std::string &msg, int type, const std::string &src) {
-	if (status == FORCIBLY_DISCONNECTED) {
-		return;
-	}
-	if (frontend) {
-		frontend->handleMessage(msg, type, src);
-	}
-	if (!msg.compare(0, 6, "TERM: ")) {
-		status = FORCIBLY_DISCONNECTED;
-	}
-}
+#include <QVariant>
+#include "socktalkclient.h"
 
-void ClientWrapper::setFrontend(SockTalkFrontend* frontend) {
-	this->frontend = frontend;
-}
+class Client : public SockTalkClient {
+	SockTalkFrontend* frontend;
+public:
+	using SockTalkClient::SockTalkClient;
+	virtual void handleMessage(const std::string &msg, int type, const std::string &src);
+
+	int send(QVariant msg);
+
+	bool connect(QVariant host, int port, QVariant username, QVariant cert, QVariant key);
+
+	void setFrontend(SockTalkFrontend* frontend);
+};

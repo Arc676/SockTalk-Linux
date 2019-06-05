@@ -22,8 +22,18 @@ SockTalkFrontend::~SockTalkFrontend() {
 	delete client;
 }
 
-void SockTalkFrontend::sendMessage(QVariant msg) {
+bool SockTalkFrontend::sendMessage(QVariant msg) {
+	return client->send(msg) == msg.toString().length();
 }
 
-void SockTalkFrontend::connect(QVariant host, int port, QVariant username, QVariant cert, QVariant pem) {
+bool SockTalkFrontend::connect(QVariant host, int port, QVariant username, QVariant cert, QVariant pem) {
+	return client->connect(host, port, username, cert, pem);
+}
+
+bool SockTalkFrontend::disconnect() {
+	client->closeClient();
+	return true;
+}
+
+void SockTalkFrontend::handleMessage(const std::string &msg, int type, const std::string &src) {
 }

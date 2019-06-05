@@ -1,19 +1,20 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(PLUGIN "Socktalkfrontend")
+set(PLUGIN "SockTalkFrontend")
 
 set(
     SRC
     plugin.cpp
     socktalkfrontend.cpp
+    client.cpp
 )
 
 set(CMAKE_AUTOMOC ON)
 
-include_directories(${CMAKE_SOURCE_DIR}/plugins/FarkleBackend/lib)
-link_directories(${CMAKE_SOURCE_DIR}/plugins/FarkleBackend/lib)
+include_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
+link_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
 
 add_library(${PLUGIN} MODULE ${SRC})
-target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/FarkleBackend/lib/libfarkle.a)
+target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib/libsocktalk.a)
 set_target_properties(${PLUGIN} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PLUGIN})
 qt5_use_modules(${PLUGIN} Qml Quick DBus)
 
