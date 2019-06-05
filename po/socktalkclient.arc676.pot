@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: socktalkclient.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-05 19:32+0000\n"
+"POT-Creation-Date: 2019-06-15 09:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/ChatView.qml:42
-msgid "Host:"
+#: ../qml/ChatView.qml:27 ../qml/ChatView.qml:150
+msgid "SockTalk Client\n"
 msgstr ""
 
 #: ../qml/ChatView.qml:58
-msgid "Port:"
+msgid "Host:"
 msgstr ""
 
 #: ../qml/ChatView.qml:74
+msgid "Port:"
+msgstr ""
+
+#: ../qml/ChatView.qml:90
 msgid "Nickname:"
 msgstr ""
 
-#: ../qml/ChatView.qml:91
+#: ../qml/ChatView.qml:107
 msgid "Connect"
 msgstr ""
 
-#: ../qml/ChatView.qml:104
+#: ../qml/ChatView.qml:120
 msgid "Disconnect"
 msgstr ""
 
-#: ../qml/ChatView.qml:151
+#: ../qml/ChatView.qml:179
 msgid "Send"
 msgstr ""
 
@@ -73,4 +77,8 @@ msgstr ""
 
 #: ../qml/DefaultHeader.qml:27
 msgid "About SockTalk"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:34
+msgid "Clear Transcript"
 msgstr ""

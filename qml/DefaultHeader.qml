@@ -27,6 +27,13 @@ PageHeader {
 				text: i18n.tr("About SockTalk")
 
 				onTriggered: pageViewer.push(pageViewer.aboutPage)
+			},
+			Action {
+				iconName: "erase"
+				visible: pageViewer.depth === 1
+				text: i18n.tr("Clear Transcript")
+
+				onTriggered: chatPage.clearTranscript()
 			}
 		]
 	}

@@ -23,6 +23,22 @@ Page {
 	anchors.fill: parent
 	header: DefaultHeader {}
 
+	function clearTranscript() {
+		transcript.text = i18n.tr("SockTalk Client\n");
+	}
+
+	Connections {
+		target: SockTalkFrontend
+		onNewMessage: {
+			transcript.append(msg + "\n")
+		}
+
+		onConnectionChanged: {
+			connectButton.enabled = !connected
+			disconnectButton.enabled = connected
+		}
+	}
+
 	Column {
 		id: connectionCol
 		spacing: margin
@@ -123,10 +139,22 @@ Page {
 			bottomMargin: margin
 			horizontalCenter: parent.horizontalCenter
 		}
+		clip: true
+		contentHeight: transcript.paintedHeight
+		contentWidth: transcript.paintedWidth
 
 		TextArea {
 			id: transcript
+			readOnly: true
 			anchors.fill: parent
+			text: i18n.tr("SockTalk Client\n")
+			wrapMode: Text.WordWrap
+			onTextChanged: {
+				if (transcript.paintedHeight > flickable.height) {
+					flickable.contentY = transcript.paintedHeight - flickable.height
+					flickable.returnToBounds()
+				}
+			}
 		}
 	}
 

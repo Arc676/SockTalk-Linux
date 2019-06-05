@@ -16,6 +16,7 @@
 #define SOCKTALKFRONTEND_H
 
 #include <QVariant>
+#include <QString>
 #include <QObject>
 
 #include "client.h"
@@ -29,9 +30,14 @@ public:
 
 	void handleMessage(const std::string &msg, int type, const std::string &src);
 
+	void wasDisconnected();
+
 	Q_INVOKABLE bool connect(QVariant host, int port, QVariant username, QVariant cert, QVariant pem);
 	Q_INVOKABLE bool sendMessage(QVariant msg);
 	Q_INVOKABLE bool disconnect();
+signals:
+	void newMessage(QString msg);
+	void connectionChanged(bool connected);
 };
 
 #endif

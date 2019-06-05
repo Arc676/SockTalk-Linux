@@ -10,17 +10,16 @@ set(
 
 set(CMAKE_AUTOMOC ON)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 include_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
 link_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
 
 add_library(${PLUGIN} MODULE ${SRC})
-target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib/libsocktalk.a)
+target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib/libsocktalk.a Threads::Threads)
 set_target_properties(${PLUGIN} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PLUGIN})
 qt5_use_modules(${PLUGIN} Qml Quick DBus)
-
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)
-target_link_libraries(${PLUGIN} Threads::Threads)
 
 execute_process(
     COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH

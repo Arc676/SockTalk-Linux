@@ -36,4 +36,9 @@ bool SockTalkFrontend::disconnect() {
 }
 
 void SockTalkFrontend::handleMessage(const std::string &msg, int type, const std::string &src) {
+	emit newMessage(QString::fromStdString(msg));
+}
+
+void SockTalkFrontend::wasDisconnected() {
+	emit connectionChanged(false);
 }

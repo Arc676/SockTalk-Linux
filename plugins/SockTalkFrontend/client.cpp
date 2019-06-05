@@ -23,6 +23,7 @@ void Client::handleMessage(const std::string &msg, int type, const std::string &
 	}
 	if (!msg.compare(0, 6, "TERM: ")) {
 		status = FORCIBLY_DISCONNECTED;
+		frontend->wasDisconnected();
 	}
 }
 
