@@ -1,4 +1,5 @@
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_STANDARD 11)
 set(PLUGIN "SockTalkFrontend")
 
 set(
@@ -17,7 +18,7 @@ include_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
 link_directories(${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib)
 
 add_library(${PLUGIN} MODULE ${SRC})
-target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib/libsocktalk.a Threads::Threads)
+target_link_libraries(${PLUGIN} ${CMAKE_SOURCE_DIR}/plugins/SockTalkFrontend/lib/libsocktalk.a ${CMAKE_THREAD_LIBS_INIT})
 set_target_properties(${PLUGIN} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PLUGIN})
 qt5_use_modules(${PLUGIN} Qml Quick DBus)
 
